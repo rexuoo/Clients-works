@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunny's Protected Links</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: #333;
+        }
+
+        header {
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .login-container {
+            max-width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            border: 2px solid red;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(255,0,0,0.2);
+            text-align: center;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid red;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .tab-box {
+            text-align: center;
+            flex: 1 1 200px;
+            max-width: 250px;
+        }
+
+        .tab-heading {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #444;
+            font-size: 1.1rem;
+        }
+
+        .link-btn {
+            background-color: white;
+            border: 2px solid red;
+            color: red;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            min-width: 150px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(255,0,0,0.1);
+        }
+
+        .link-btn:hover {
+            background-color: red;
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255,0,0,0.4);
+        }
+
+        .link-btn:active {
+            transform: scale(0.97);
+            box-shadow: 0 4px 10px rgba(255,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <header>data entry Links</header>
+
+    <!-- Login Page -->
+    <div id="loginPage" class="login-container">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="checkLogin()">Login</button>
+        <p id="error" style="color:red;"></p>
+    </div>
+
+    <!-- Tabs Page -->
+    <div id="tabsPage" style="display:none;">
+        <div class="container">
+            <div class="tab-box">
+                <div class="tab-heading">Heading 1</div>
+                <a href="https://foliowebdevs-eng.github.io/Website/?fbclid=PAZXh0bgNhZW0CMTEAAadZpaAWkINUQSB8ljPGr8QVV9T7SiehMMhwghdFl5p39uWUxMaboeTM1KFgrA_aem_3CyjV_NoeEP42-Wn3Sbgxg" class="link-btn">Tab 1</a>
+            </div>
+            <div class="tab-box">
+                <div class="tab-heading">Heading 2</div>
+                <a href="" class="link-btn">Tab 2</a>
+            </div>
+            <div class="tab-box">
+                <div class="tab-heading">Heading 3</div>
+                <a href="" class="link-btn">Tab 3</a>
+            </div>
+            <div class="tab-box">
+                <div class="tab-heading">Heading 4</div>
+                <a href="" class="link-btn">Tab 4</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const users = [
+            {username: "user1", password: "pass1"},
+            {username: "user2", password: "pass2"},
+            {username: "user3", password: "pass3"},
+            {username: "user4", password: "pass4"},
+            {username: "user5", password: "pass5"},
+            {username: "user6", password: "pass6"},
+            {username: "user7", password: "pass7"},
+            {username: "user8", password: "pass8"},
+            {username: "user9", password: "pass9"},
+            {username: "user10", password: "pass10"}
+        ];
+
+        function checkLogin() {
+            let u = document.getElementById("username").value;
+            let p = document.getElementById("password").value;
+            let found = users.find(user => user.username === u && user.password === p);
+
+            if (found) {
+                document.getElementById("loginPage").style.display = "none";
+                document.getElementById("tabsPage").style.display = "block";
+            } else {
+                document.getElementById("error").innerText = "Invalid username or password";
+            }
+        }
+    </script>
+
+</body>
+</html>
